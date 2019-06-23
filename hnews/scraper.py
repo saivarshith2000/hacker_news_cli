@@ -19,7 +19,7 @@ def getNews(pages=1):
         return resultsArray
     for page in range(2, pages):
         resultsArray = resultsArray + createResultArray(
-            getSinglePage(baseURL + "news", {"p": page})
+            getSinglePage(baseURL + "news", params={"p": page})
         )
     return resultsArray
 
@@ -34,7 +34,7 @@ def getLatest(pages=1):
         return resultsArray
     for page in range(2, pages):
         resultsArray = resultsArray + createResultArray(
-            getSinglePage(baseURL + "newest", {"p": page})
+            getSinglePage(baseURL + "newest", params={"p": page})
         )
     return resultsArray
 

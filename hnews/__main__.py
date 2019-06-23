@@ -31,6 +31,7 @@ proxy = args.proxy
 age = args.age
 date = args.date
 
+
 # Obtain the results based on request newsType
 if newsType == "news":
     results = scraper.getNews(pages)

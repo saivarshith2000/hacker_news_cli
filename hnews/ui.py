@@ -7,10 +7,11 @@ def printAllResults(resultArray):
     # Prints a horizontal line at the top if arg is passed
     count = 1
     for result in resultArray:
-        print(" {}   ".format(count), end="")
+        print("{}. |".format(count), end="")
         count = count + 1
-        printHoriziontalLine()
+        printHoriziontalLine(6)
         printResult(result)
+        print()
     printHoriziontalLine()
     return
 
@@ -35,8 +36,8 @@ def breakLine(text):
     return output
 
 
-def printHoriziontalLine():
+def printHoriziontalLine(reduction=0):
     # Prints a horizontal line with a width of MAX_COLS
-    for i in range(0, MAX_COLS):
+    for i in range(0, MAX_COLS - reduction):
         print("-", end="")
     print()
