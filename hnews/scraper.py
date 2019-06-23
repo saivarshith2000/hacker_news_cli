@@ -13,8 +13,7 @@ def getNews(pages=1):
     # This is the default request made if no args are passed at runtime.
     # This function fetches the news shown on the hackernews homepage
     resultsArray = []
-    resultsArray = resultsArray + \
-        createResultArray(getSinglePage(baseURL + "news"))
+    resultsArray = resultsArray + createResultArray(getSinglePage(baseURL + "news"))
     if pages == 1:
         # If the user requested only a single page, return these results
         return resultsArray
@@ -29,8 +28,7 @@ def getLatest(pages=1):
     # This function is called when the user passes 'latest' arg
     # Fetches the the newest articles from the site
     resultsArray = []
-    resultsArray = resultsArray + \
-        createResultArray(getSinglePage(baseURL + "newest"))
+    resultsArray = resultsArray + createResultArray(getSinglePage(baseURL + "newest"))
     if pages == 1:
         # If the user requested only a single page, return these results
         return resultsArray

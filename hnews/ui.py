@@ -2,14 +2,16 @@
 MAX_COLS = 80
 
 
-def printAllResults(resultArray, printTopLine=False):
+def printAllResults(resultArray):
     # Prints a nicely formatted list of all results
     # Prints a horizontal line at the top if arg is passed
-    if printTopLine:
-        printHoriziontalLine()
+    count = 1
     for result in resultArray:
-        printResult(result)
+        print(" {}   ".format(count), end="")
+        count = count + 1
         printHoriziontalLine()
+        printResult(result)
+    printHoriziontalLine()
     return
 
 
@@ -19,8 +21,7 @@ def printResult(result):
     # Any text above MAX_COLS cols wide will put be in a new line
     print(breakLine(result["name"]))
     print(breakLine(result["url"]))
-    print(
-        "{}     -----     {}".format(result["age"], result["points"]), end="")
+    print("{}     -----     {}".format(result["age"], result["points"]), end="\n")
 
 
 def breakLine(text):
@@ -29,7 +30,7 @@ def breakLine(text):
     output = ""
     start = 0
     for i in range(0, numberOfLines):
-        output = output + text[start: start + MAX_COLS] + "\n"
+        output = output + text[start : start + MAX_COLS] + "\n"
         start = start + MAX_COLS + 1
     return output
 
@@ -37,5 +38,5 @@ def breakLine(text):
 def printHoriziontalLine():
     # Prints a horizontal line with a width of MAX_COLS
     for i in range(0, MAX_COLS):
-        print("_", end="")
+        print("-", end="")
     print()

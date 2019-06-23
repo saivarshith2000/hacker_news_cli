@@ -4,8 +4,7 @@ from ui import printAllResults
 
 argParser = argparse.ArgumentParser(description="Hacker News Cli")
 argParser.add_argument(
-    "-number", type=int, help="Number of pages to display. Default = 1",
-    default=1
+    "-number", type=int, help="Number of pages to display. Default = 1", default=1
 )
 argParser.add_argument(
     "-proxy",
@@ -33,9 +32,9 @@ age = args.age
 date = args.date
 
 # Obtain the results based on request newsType
-if newsType == 'news':
+if newsType == "news":
     results = scraper.getNews(pages)
-elif newsType == 'latest':
+elif newsType == "latest":
     results = scraper.getLatest(pages)
 
 # Display formatted results
