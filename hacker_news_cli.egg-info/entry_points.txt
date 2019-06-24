@@ -1,0 +1,3 @@
+[console_scripts]
+hacker_news_cli = hnews.__main__:main
+
