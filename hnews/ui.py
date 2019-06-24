@@ -4,7 +4,6 @@ MAX_COLS = 80
 
 def printAllResults(resultArray):
     # Prints a nicely formatted list of all results
-    # Prints a horizontal line at the top if arg is passed
     count = 1
     for result in resultArray:
         print("{}. |".format(count), end="")

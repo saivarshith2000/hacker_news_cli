@@ -1,6 +1,5 @@
 import requests
-from parser import createResultArray
-import ui
+from .parser import createResultArray
 
 baseURL = "https://news.ycombinator.com/"
 
@@ -39,16 +38,26 @@ def getLatest(pages=1):
     return resultsArray
 
 
-def getPast():
+def getPast(date, pages):
     # This function is called if the user passes 'past' arg
     # The user can pass a specific date of number of dates in the past argument
-    response = requests.get(baseURL + "newest")
-    print(response.text)
+    formattedDate = str(date.year) + "-" + str(date.month) + "-" + str(date.day)
+    print(" - {}.".format(formattedDate))
+    resultsArray = []
+    resultsArray = resultsArray + createResultArray(
+        getSinglePage(baseURL + "front", {"day": formattedDate})
+    )
+    if pages == 1:
+        # If the user requested a single page from the date
+        return resultsArray
+    for page in range(2, pages):
+        resultsArray = resultsArray + createResultArray(
+            getSinglePage(baseURL + "front", {"p": page, "day": formattedDate})
+        )
+        return resultsArray
 
 
 # Utility Functions
-
-
 def getSinglePage(url=baseURL, params={}):
     # This function obtains a single page from the hackernews website
     # It takes a url and parameters to pass
