@@ -4,7 +4,7 @@ import os
 DEFAULT_AGE = 1
 DEFAULT_TYPE = "news"
 DEFAULT_NUMBER = 1
-DEFAULT_PROXY = os.environ.get("HTTP_PROXY") or os.environ.get("HTTPS_PROXY")
+DEFAULT_PROXY = os.environ.get("http_proxy") or os.environ.get("https_proxy")
 
 
 def argValidator(args):

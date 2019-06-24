@@ -6,8 +6,8 @@ README = (HERE/ "README.md").read_text()
 
 
 setup(
-    name='hacker_news_cli',
-    version="1.0.0",
+    name='py_hacker_news',
+    version="1.0.1",
     description="Command Line tool for browsing HackerNews articles",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -25,7 +25,7 @@ setup(
     install_requires=["beautifulsoup4", "requests"],
     entry_points={
         "console_scripts":[
-            "hacker_news_cli=hnews.__main__:main"
+            "hnews=hnews.__main__:main"
         ]
     }
 ),

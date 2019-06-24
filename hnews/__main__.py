@@ -46,9 +46,7 @@ def initArgParser():
         default="news",
     )
     parser.add_argument("-age", type=int, help="Age of results in DAYS")
-    parser.add_argument(
-        "-config", type=str, help="Path to Config. Default = ~/.hnews.ini"
-    )
+
     return parser
 
 
