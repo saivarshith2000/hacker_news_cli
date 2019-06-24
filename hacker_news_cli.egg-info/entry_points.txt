@@ -1,3 +1,0 @@
-[console_scripts]
-hnews = hnews.__main__:main
-

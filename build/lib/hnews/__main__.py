@@ -12,7 +12,6 @@ def main():
     argParser = initArgParser()
     args = argParser.parse_args()
     newsType, age, pages, proxy = validator.argValidator(args)
-
     # Obtain the results based on request newsType
     if newsType == "news":
         results = scraper.getNews(pages, proxy)

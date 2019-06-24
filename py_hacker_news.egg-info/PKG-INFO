@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: py-hacker-news
-Version: 1.0.1
+Version: 1.0.2
 Summary: Command Line tool for browsing HackerNews articles
 Home-page: https://github.com/saivarshith2000/hacker_news_cli
 Author: saivarshith2000
@@ -19,7 +19,10 @@ Description: # **Hacker News Cli**
         ## **Installation**
         hacker_news_cli is written in python and can be installed with pip.  
         **This program only supports python3**  
-        `pip3 install py_hacker_news`  
+        `pip3 install py_hacker_news --user`  
+        You need to make sure that `~/.local/bin` is in your PATH variable.  
+        To add this to the PATH try `export PATH=$PATH:~/.local/bin`  
+          
         You can also download source and try  
         `pip install -r requirements.txt`  
         `python3 -m hnews`

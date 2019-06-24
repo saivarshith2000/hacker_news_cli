@@ -13,7 +13,8 @@ hacker_news_cli is written in python and can be installed with pip.
 **This program only supports python3**  
 `pip3 install py_hacker_news --user`  
 You need to make sure that `~/.local/bin` is in your PATH variable.  
-To add this to the PATH try `export PATH=$PATH:~/.local/bin`
+To add this to the PATH try `export PATH=$PATH:~/.local/bin`  
+  
 You can also download source and try  
 `pip install -r requirements.txt`  
 `python3 -m hnews`
