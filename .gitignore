@@ -1,6 +1,6 @@
 venv/
-output.txt
 .vscode/
 build/
 dist/
 py_hacker_news.egg-info/
+output.txt

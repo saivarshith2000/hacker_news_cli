@@ -14,14 +14,14 @@ def main():
     newsType, age, pages, proxy = validator.argValidator(args)
     # Obtain the results based on request newsType
     if newsType == "news":
-        results = scraper.getNews(pages, proxy)
+        results = scraper.getArticles(pages, proxy, "news")
     elif newsType == "latest":
-        results = scraper.getLatest(pages, proxy)
+        results = scraper.getArticles(pages, proxy, "newest")
     elif newsType == "past":
         date = datetime.now() - timedelta(age)
         formattedDate = str(date.year) + "-" + str(date.month) + "-" + str(date.day)
         print("Showing results from {} days ago  -  {}".format(age, formattedDate))
-        results = scraper.getPast(formattedDate, pages, proxy)
+        results = scraper.getArticles(pages, proxy, "front", formattedDate)
     ui.printAllResults(results)
     exit()
 
