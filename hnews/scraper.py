@@ -7,53 +7,21 @@ baseURL = "https://news.ycombinator.com/"
 # Default value is 1 ie., a single page is fetched. Valid range is 1 - 5
 # The first page is fetched regardless of the argument passed
 
-
-def getNews(pages, proxy):
-    # This is the default request made if no args are passed at runtime.
-    # This function fetches the news shown on the hackernews homepage
+def getArticles(pages, proxy, newsType, formattedDate=None):
+    # This function fetches required number of pages of the required type from the site
+    # Previously there used to be a function for each type of news, but I have decided to 
+    # merge them into one to avoid redundancy and Keep It Simple
     resultsArray = []
-    resultsArray = resultsArray + createResultArray(getSinglePage(baseURL + "news", proxy=proxy))
+    url = baseURL + newsType    # newsType can be on of news, newest or front (for past news)
+    params = {} if formattedDate == None else {"day" : formattedDate}
+    resultsArray = resultsArray + createResultArray(getSinglePage(url, proxy=proxy, params=params))
     if pages == 1:
-        # If the user requested only a single page, return these results
-        return resultsArray
+        return resultsArray;
     for page in range(2, pages):
-        resultsArray = resultsArray + createResultArray(
-            getSinglePage(baseURL + "news", params={"p": page}, proxy=proxy)
-        )
+        # add a page parameter to params dict 
+        params["p" : page]
+        resultsArray = resultsArray + createResultArray(getSinglePage(url, params=params, proxy=proxy))
     return resultsArray
-
-
-def getLatest(pages, proxy):
-    # This function is called when the user passes 'latest' arg
-    # Fetches the the newest articles from the site
-    resultsArray = []
-    resultsArray = resultsArray + createResultArray(getSinglePage(baseURL + "newest", proxy=proxy))
-    if pages == 1:
-        # If the user requested only a single page, return these results
-        return resultsArray
-    for page in range(2, pages):
-        resultsArray = resultsArray + createResultArray(
-            getSinglePage(baseURL + "newest", {"p": page}, proxy)
-        )
-    return resultsArray
-
-
-def getPast(formattedDate, pages, proxy):
-    # This function is called if the user passes 'past' arg
-    # The user can pass a specific date of number of dates in the past argument
-    resultsArray = []
-    resultsArray = resultsArray + createResultArray(
-        getSinglePage(baseURL + "front", {"day": formattedDate},proxy)
-    )
-    if pages == 1:
-        # If the user requested a single page from the date
-        return resultsArray
-    for page in range(2, pages):
-        resultsArray = resultsArray + createResultArray(
-            getSinglePage(baseURL + "front", {"p": page, "day": formattedDate}, proxy)
-        )
-        return resultsArray
-
 
 # Utility Functions
 def getSinglePage(url=baseURL, params={}, proxy=None):

@@ -7,7 +7,7 @@ README = (HERE/ "README.md").read_text()
 
 setup(
     name='py_hacker_news',
-    version="1.0.2",
+    version="1.0.3",
     description="Command Line tool for browsing HackerNews articles",
     long_description=README,
     long_description_content_type="text/markdown",
