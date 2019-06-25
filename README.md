@@ -1,4 +1,4 @@
-# **Hacker News Cli**
+# **Py Hacker News**
 
 #### A Simple command line tool written in python to browse Hacker news.
 
@@ -9,7 +9,7 @@ py_hacker_news is a command line tool which fetches and displays results from Ha
 You can browse latest, top and past articles from the command line itself. 
 
 ## **Installation**
-hacker_news_cli is written in python and can be installed with pip.  
+py_hacker_news is written in python and can be installed with pip.  
 **This program only supports python3**  
 `pip3 install py_hacker_news --user`  
 You need to make sure that `~/.local/bin` is in your PATH variable.  

@@ -7,6 +7,23 @@ baseURL = "https://news.ycombinator.com/"
 # Default value is 1 ie., a single page is fetched. Valid range is 1 - 5
 # The first page is fetched regardless of the argument passed
 
+def getArticles(pages, proxy, newsType, formattedDate=None):
+    # This function fetches required number of pages of the required type from the site
+    # Previously there used to be a function for each type of news, but I have decided to 
+    # merge them into one to avoid redundancy and Keep It Simple
+    resultsArray = []
+    url = baseURL + newsType    # newsType can be on of news, newest or front (for past news)
+    params = {} if formattedDate == None else {"day" : formattedDate}
+    resultsArray = resultsArray + createResultArray(getSinglePage(url, proxy=proxy, params=params))
+    if pages == 1:
+        return resultsArray;
+    for page in range(2, pages):
+        # add a page parameter to params dict 
+        params["p" : page]
+        resultsArray = resultsArray + createResultArray(getSinglePage(url, params=params, proxy=proxy))
+    return resultsArray
+
+
 
 def getNews(pages, proxy):
     # This is the default request made if no args are passed at runtime.
