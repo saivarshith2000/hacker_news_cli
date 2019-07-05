@@ -6,9 +6,9 @@ def printAllResults(resultArray):
     # Prints a nicely formatted list of all results
     count = 1
     for result in resultArray:
-        print("{}. |".format(count), end="")
         count = count + 1
-        printHoriziontalLine(6)
+        printHoriziontalLine()
+        result["name"] = str(count) + ". " + result["name"]
         printResult(result)
         print()
     printHoriziontalLine()
@@ -35,8 +35,8 @@ def breakLine(text):
     return output
 
 
-def printHoriziontalLine(reduction=0):
+def printHoriziontalLine():
     # Prints a horizontal line with a width of MAX_COLS
-    for i in range(0, MAX_COLS - reduction):
+    for i in range(0, MAX_COLS):
         print("-", end="")
     print()
